@@ -1,7 +1,85 @@
+<!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TV Shows</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    bod1 {
+      font-family: "Poppins", sans-serif;
+    }
+
+    header {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 80px;
+      background-color: #f0f0f0;
+    }
+
+    header h4 {
+      position: absolute;
+      left: 10%;
+      bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    .intro {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #161616;
+      transition: 1s;
+    }
+
+    .logo-header {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      text-align: center;
+    }
+    .logo {
+      position: relative;
+      display: inline-block;
+      opacity: 0;
+      transition: ease-in-out 0.5s;
+    }
+    .logo.active {
+      opacity: 1;
+    }
+    .logo.fade {
+      opacity: 0;
+    }
+  </style>
+</head>
+<bod1>
+  <div class="intro">
+    <div class="logo-header">
+      <h1>
+        <span class="logo">TV</span>
+        <span class="logo">Shows</span>
+      </h1>
+    </div>
+  </div>
+  <bod>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
         <title>Lumiere</title>
         <link rel="stylesheet" href="stylep.css">
     </head>
@@ -9,7 +87,7 @@
     <header>
         <div class="lumiere">Lumiere</div>
         <div id="navbar">
-            <a class="nav" href="index.html">Home</a>
+            <a class="nav" href="splash.html">Home</a>
             <a class="nav" href="Movies.html">Movies</a>
             <a class="nav" href="TV.html">TV Shows</a>
             <a class="nav" href="Devs.html">Devs</a>
@@ -45,7 +123,7 @@
         </form>
         <div class="my-body">
             <div class="darkThemeBtn">
-              <input id="darkmode-toggle" type="checkbox" onclick="toggleColorMode()"">
+              <input id="darkmode-toggle" type="checkbox" onclick="toggleColorMode()">
               <label for="darkmode-toggle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="sun">
                 <g transform="translate(0 512) scale(.1 -.1)">
@@ -68,7 +146,7 @@
     </div>
     <main id="main">
         <div class="movie">
-            <a href="pleaseworkTV.html?showId=1"> <!-- Example link with show ID 1 -->
+            <a href="pleaseworkTV.html?showId=1">
                 <div class="card">
                     <img src="pic1.jpg">
                     <button>
@@ -99,4 +177,32 @@
 
     <script src="Tv.js"></script>
 </body>
+  </bod>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let logoSpan = document.querySelectorAll('.logo');
+
+      setTimeout(() => {
+        logoSpan.forEach((span, idx) => {
+          setTimeout(() => {
+            span.classList.add('active');
+          }, (idx + 1) * 400)
+        });
+
+        setTimeout(() => {
+          logoSpan.forEach((span, idx) => {
+            setTimeout(() => {
+              span.classList.remove('active');
+              span.classList.add('fade');
+            }, (idx + 1) * 50)
+          });
+        }, 2000);
+
+        setTimeout(() => {
+          document.querySelector('.intro').style.top = '-100vh';
+        }, 2300);
+      });
+    });
+  </script>
+</bod1>
 </html>
