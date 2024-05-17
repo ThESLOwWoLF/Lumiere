@@ -1,0 +1,40 @@
+body{
+  background-image:url("night-sky-tonight-hero.jpg");
+  background-size: 100vw 100vh;
+}
+
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input{
+  width: 90%;
+  border-radius: 4px;
+  border: 3px solid #f6efef;
+  padding: 5px;
+}
+
+
+#form{
+  background-color: rgb(255, 255, 255);
+  width:25%;
+  border-radius: 4px;
+  margin:120px auto;
+  padding:50px;
+}
+
+#btn{
+  color:rgb(255, 255, 255);
+  background-color: rgb(10, 22, 61);
+  padding:10px;
+  font-size: large;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 570px) {
+  #form {
+    width: 65%;
+    margin-left:none;
+    padding:40px;
+  }
+}
